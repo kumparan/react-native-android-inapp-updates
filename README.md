@@ -11,8 +11,8 @@ Build with ReasonML. This project is still on beta.
 ### Project Milestone
 
 - [x] `startUpdateFlow`  Basic implementation.
-- [] Implement event emitter for flexible in-app updates download progress and downloaded status.
-- [] Implement `clientVersionStalenessDays` check for `startUpdateFlow`.
+- [ ] Implement event emitter for flexible in-app updates download progress and downloaded status.
+- [ ] Implement `clientVersionStalenessDays` check for `startUpdateFlow`.
 
 
 
