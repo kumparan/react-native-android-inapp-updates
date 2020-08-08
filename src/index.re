@@ -4,11 +4,7 @@ external checkAppUpdate: int => _ = "checkAppUpdate";
 
 let updateFlowDict = Js.Dict.fromList([("IMMEDIATE", 1), ("FLEXIBLE", 0)]);
 
-type appUpdateType =
-  | IMMEDIATE
-  | FLEXIBLE;
-
-let startUpdateFlow = (appUpdateType): appUpdateType => {
+let startUpdateFlow = (appUpdateType: string): string => {
   let updateCode =
     switch (
       Js.Dict.get(updateFlowDict, String.uppercase_ascii(appUpdateType))
