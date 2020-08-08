@@ -45,7 +45,7 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
                 });
 
                 startUpdateFlow.addOnSuccessListener(result -> {
-                    promise.resolve("Update Successful " + result);
+                    promise.resolve(result == 0 ? "Canceled" : "Successful");
                 });
             } else {
                 promise.reject("reject", "No update available");
