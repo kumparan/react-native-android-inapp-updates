@@ -58,7 +58,7 @@ promise string startUpdateFlow(appUpdateType)
 **Input**
 | Input             | Description                   | Type                      | Default Value 
 | -------------     | -------------                 | -------------             | ------------- |
-| appUpdateType     | Android In-app updates type   | `enum(flexible|immediate)`| `immediate`   |
+| appUpdateType     | Android In-app updates type   | enum(`flexible` or `immediate`)`| `immediate`   |
 
 **Promise Resolve**
 | Value                     | Description                            
