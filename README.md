@@ -44,7 +44,7 @@ import {startUpdateFlow} from 'react-native-android-inapp-updates';
 const updateModes = 'flexible';
 
 try {
-    const result = await startUpdateFlow('flexible');
+    const result = await startUpdateFlow(updateModes);
 } catch (e) {
     console.log('error:', e);
 }
