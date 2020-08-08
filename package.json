@@ -1,0 +1,45 @@
+{
+  "name": "react-native-android-inapp-updates",
+  "title": "React Native Android Inapp Updates",
+  "version": "1.0.14",
+  "description": "TODO",
+  "main": "src/index.bs.js",
+  "files": [
+    "README.md",
+    "android",
+    "src/*.bs.js",
+    "src/*.re",
+    "src/*.d.ts"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "re:build": "bsb -clean-world -make-world",
+    "re:watch": "bsb -clean-world -make-world -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/github_account/react-native-android-inapp-updates.git",
+    "baseUrl": "https://github.com/github_account/react-native-android-inapp-updates"
+  },
+  "keywords": [
+    "react-native"
+  ],
+  "author": {
+    "name": "Agastya Darma Laksana",
+    "email": "gedeagas22@gmail.com"
+  },
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "bs-platform": "^8.2.0"
+  },
+  "devDependencies": {
+    "add": "^2.0.6",
+    "react": "^16.9.0",
+    "react-native": "^0.61.5",
+    "reason-react": "^0.9.1",
+    "reason-react-native": "^0.62.3",
+    "yarn": "^1.22.4"
+  }
+}

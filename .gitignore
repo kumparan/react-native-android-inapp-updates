@@ -1,0 +1,23 @@
+# OSX
+#
+.DS_Store
+
+# BuckleScript artifacts
+*.bs.js
+.bsb.lock
+.merlin
+lib/bs
+lib/ocaml
+
+# node.js
+#
+node_modules/
+npm-debug.log
+yarn-error.log
+
+
+
+# BUCK
+buck-out/
+\.buckd/
+*.keystore

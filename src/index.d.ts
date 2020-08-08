@@ -1,0 +1,1 @@
+export function startUpdateFlow(appUpdateType: string): Promise<string>;
