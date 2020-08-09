@@ -29,13 +29,15 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
         return "AndroidInappUpdates";
     }
 
-    protected void checkUpdate(final Promise promise, int appUpdateType){
+    protected void checkUpdate(final Promise promise, int appUpdateType, int clientVersionStalenessDays){
         AppUpdateManager appUpdateManager = AppUpdateManagerFactory.create(reactContext);
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
 
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                            && appUpdateInfo.isUpdateTypeAllowed(appUpdateType)) {
+                    && appUpdateInfo.clientVersionStalenessDays() != null
+                    && appUpdateInfo.clientVersionStalenessDays() >= clientVersionStalenessDays
+                    && appUpdateInfo.isUpdateTypeAllowed(appUpdateType)) {
                 AppUpdateOptions options = AppUpdateOptions.newBuilder(appUpdateType).build();
                 final Activity activity = getCurrentActivity();
                 Task<Integer> startUpdateFlow = appUpdateManager.startUpdateFlow(appUpdateInfo,activity,options);
@@ -58,11 +60,8 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void checkAppUpdate(int appUpdateType, final Promise promise){
-        checkUpdate(promise, appUpdateType);
+    public void checkAppUpdate(int appUpdateType, int clientVersionStalenessDays, final Promise promise){
+        checkUpdate(promise,appUpdateType,clientVersionStalenessDays);
     }
-
-
-
 
 }

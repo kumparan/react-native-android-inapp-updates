@@ -12,7 +12,7 @@ Build with ReasonML. This project is still on beta.
 
 - [x] `startUpdateFlow`  Basic implementation.
 - [ ] Implement event emitter for flexible in-app updates download progress and downloaded status.
-- [ ] Implement `clientVersionStalenessDays` check for `startUpdateFlow`.
+- [x] Implement `clientVersionStalenessDays` check for `startUpdateFlow`.
 
 
 
@@ -53,12 +53,13 @@ try {
 ### Methods
 `startUpdateFlow()`
 ```javascript
-promise string startUpdateFlow(appUpdateType)
+promise string startUpdateFlow(appUpdateType,clientVersionStalenessDays)
 ```
 **Input**
-| Input             | Description                   | Type                      | Default Value 
-| -------------     | -------------                 | -------------             | ------------- |
-| appUpdateType     | Android In-app updates type   | enum(`flexible` or `immediate`)`| `immediate`   |
+| Input             | Description                   | Type                              | Default Value 
+| -------------     | -------------                 | -------------                     | ------------- |
+| appUpdateType     | Android In-app updates type   | enum(`flexible` or `immediate`)   | immediate   |
+| clientVersionStalenessDays     | If an update is available In-app modal will only triger after `x` number of days since the Google Play Store app on the user's device has learnt about an available update.    | `int`   | 0   |
 
 **Promise Resolve**
 | Value                     | Description                            

@@ -1,1 +1,1 @@
-export function startUpdateFlow(appUpdateType: string): Promise<string>;
+export function startUpdateFlow(appUpdateType: string, clientVersionStalenessDays?: string): Promise<string>;
