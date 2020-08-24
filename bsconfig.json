@@ -18,13 +18,5 @@
     "bs-dependencies": [
         "reason-react",
         "reason-react-native"
-    ],
-    "gentypeconfig": {
-        "language": "typescript",
-        "shims": {},
-        "debug": {
-            "all": false,
-            "basic": false
-        }
-    }
+    ]
 }
