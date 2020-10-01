@@ -23,11 +23,11 @@ Build with ReasonML. This project is still on beta.
 
 ## Getting started
 
-`$ npm install react-native-android-inapp-updates --save`
+`$ npm install @gurukumparan/react-native-android-inapp-updates --save`
 
 or
 
-`$ yarn add react-native-android-inapp-updates`
+`$ yarn add @gurukumparan/react-native-android-inapp-updates`
 
 ### For react-native@0.60.0 or above
 
@@ -36,11 +36,11 @@ Read more about autolinking [here](https://github.com/react-native-community/cli
 
 ### Mostly automatic installation
 
-`$ react-native link react-native-android-inapp-updates`
+`$ react-native link @gurukumparan/react-native-android-inapp-updates`
 
 ## Usage
 ```javascript
-import {startUpdateFlow} from 'react-native-android-inapp-updates';
+import {startUpdateFlow} from '@gurukumparan/react-native-android-inapp-updates';
 const updateModes = 'flexible';
 
 try {
