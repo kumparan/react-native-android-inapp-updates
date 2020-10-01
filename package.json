@@ -1,5 +1,5 @@
 {
-  "name": "react-native-android-inapp-updates",
+  "name": "@gurukumparan/react-native-android-inapp-updates",
   "title": "React Native Android Inapp Updates",
   "version": "1.0.16",
   "description": "TODO",
@@ -18,8 +18,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/github_account/react-native-android-inapp-updates.git",
-    "baseUrl": "https://github.com/github_account/react-native-android-inapp-updates"
+    "url": "git+https://github.com/kumparan/react-native-android-inapp-updates.git",
+    "baseUrl": "https://github.com/kumparan/react-native-android-inapp-updates"
   },
   "keywords": [
     "react-native"
