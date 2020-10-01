@@ -1,5 +1,5 @@
 # react-native-android-inapp-updates
-![npm](https://img.shields.io/npm/v/react-native-android-inapp-updates?style=for-the-badge)
+![npm](https://img.shields.io/npm/v/@gurukumparan/react-native-android-inapp-updates?style=for-the-badge)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
 
