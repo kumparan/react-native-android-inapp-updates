@@ -10,7 +10,6 @@ import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
 import com.facebook.react.bridge.WritableNativeMap;
 
-import com.facebook.stetho.inspector.elements.ShadowDocument;
 import com.google.android.play.core.appupdate.AppUpdateInfo;
 import com.google.android.play.core.appupdate.AppUpdateManager;
 import com.google.android.play.core.appupdate.AppUpdateManagerFactory;
@@ -60,8 +59,8 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     }
 
     protected void checkUpdate(final Promise promise, int appUpdateType, int clientVersionStalenessDays) {
-
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                     && appUpdateInfo.clientVersionStalenessDays() != null
