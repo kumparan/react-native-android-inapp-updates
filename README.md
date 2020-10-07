@@ -51,7 +51,7 @@ try {
 ```
 ## Reference
 ### Methods
-#### startUpdateFlow()
+#### startUpdateFlow(appUpdateType, clientVersionStalenessDays)
 ```javascript
 promise string startUpdateFlow(appUpdateType,clientVersionStalenessDays)
 ```
@@ -71,7 +71,7 @@ promise string startUpdateFlow(appUpdateType,clientVersionStalenessDays)
 | Value                                     | Description                         
 | -------------                             | -------------                           
 | `checkAppUpdate failure:`                 | `appUpdateInfoTask` failed getting result. This can mean numerous reason check the log for more explanation. 
-| `No update available:`                    | There is no update available with the `appUpdateType` type.   
+| `No update available`                    | There is no update available with the `appUpdateType` type.   
 | `startUpdateFlow failure:`                | Failed starting the Google Play In-app updates modal.   
 
 #### checkUpdateAvailability()
@@ -88,7 +88,21 @@ promise string checkUpdateAvailability()
 | Value                                     | Description                         
 | -------------                             | -------------                           
 | `checkAppUpdate failure:`                 | `appUpdateInfoTask` failed getting result. This can mean numerous reason check the log for more explanation. 
-| `No update available:`                    | There is no update available
+| `No update available`                    | There is no update available
 
+#### onCompleteUpdate()
+```javascript
+promise string onCompleteUpdate()
+```
+
+##### Promise Resolve
+| Value                     | Description                            
+| -------------             | -------------                          
+| `success`        | Application update succeed
+
+##### Promise Reject
+| Value                                     | Description                         
+| -------------                             | -------------                           
+| `Download is not completed`                    | Application update process fail
 
 ❤️ From Indonesia
