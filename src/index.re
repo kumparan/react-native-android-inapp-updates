@@ -1,6 +1,12 @@
 [@bs.module "react-native"]
 [@bs.scope ("NativeModules", "AndroidInappUpdates")]
 external checkAppUpdate: (int, int) => string = "checkAppUpdate";
+[@bs.module "react-native"]
+[@bs.scope ("NativeModules", "AndroidInappUpdates")]
+external completeUpdate: unit => string = "completeUpdate";
+[@bs.module "react-native"]
+[@bs.scope ("NativeModules", "AndroidInappUpdates")]
+external checkUpdateStatus: unit => string = "checkUpdateStatus";
 
 let updateFlowDict = Js.Dict.fromList([("IMMEDIATE", 1), ("FLEXIBLE", 0)]);
 
@@ -16,3 +22,7 @@ let startUpdateFlow =
 
   checkAppUpdate(updateCode, clientVersionStalenessDays);
 };
+
+let onCompleteUpdate: unit => string = completeUpdate;
+
+let checkUpdateAvailability: unit => string = checkUpdateStatus;

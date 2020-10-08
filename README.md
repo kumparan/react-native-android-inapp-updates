@@ -51,27 +51,58 @@ try {
 ```
 ## Reference
 ### Methods
-`startUpdateFlow()`
+#### startUpdateFlow()
 ```javascript
 promise string startUpdateFlow(appUpdateType,clientVersionStalenessDays)
 ```
-**Input**
+##### Input
 | Input             | Description                   | Type                              | Default Value 
 | -------------     | -------------                 | -------------                     | ------------- |
 | appUpdateType     | Android In-app updates type   | enum(`flexible` or `immediate`)   | immediate   |
 | clientVersionStalenessDays     | If an update is available In-app modal will only triger after `x` number of days since the Google Play Store app on the user's device has learnt about an available update.    | `int`   | 0   |
 
-**Promise Resolve**
+##### Promise Resolve
 | Value                     | Description                            
 | -------------             | -------------                          
 | `Canceled`                | In-app modal canceled by user
 | `Successful`              | User press the update button
 
-**Promise Reject**
+##### Promise Reject
 | Value                                     | Description                         
 | -------------                             | -------------                           
 | `checkAppUpdate failure:`                 | `appUpdateInfoTask` failed getting result. This can mean numerous reason check the log for more explanation. 
-| `No update available:`                    | There is no update available with the `appUpdateType` type.   
+| `No update available`                    | There is no update available with the `appUpdateType` type.   
 | `startUpdateFlow failure:`                | Failed starting the Google Play In-app updates modal.   
+
+#### checkUpdateAvailability()
+```javascript
+promise string checkUpdateAvailability()
+```
+
+##### Promise Resolve
+| Value                     | Description                            
+| -------------             | -------------                          
+| `Update available`        | Application update is available
+
+##### Promise Reject
+| Value                                     | Description                         
+| -------------                             | -------------                           
+| `checkAppUpdate failure:`                 | `appUpdateInfoTask` failed getting result. This can mean numerous reason check the log for more explanation. 
+| `No update available`                    | There is no update available
+
+#### onCompleteUpdate()
+```javascript
+promise string onCompleteUpdate()
+```
+
+##### Promise Resolve
+| Value                     | Description                            
+| -------------             | -------------                          
+| `success`        | Application update succeed
+
+##### Promise Reject
+| Value                                     | Description                         
+| -------------                             | -------------                           
+| `Download is not completed`                    | Application update process fail
 
 ❤️ From Indonesia

@@ -59,8 +59,8 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     }
 
     protected void checkUpdate(final Promise promise, int appUpdateType, int clientVersionStalenessDays) {
-
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
                     && appUpdateInfo.clientVersionStalenessDays() != null
@@ -90,6 +90,21 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void checkAppUpdate(int appUpdateType, int clientVersionStalenessDays, final Promise promise) {
         checkUpdate(promise, appUpdateType, clientVersionStalenessDays);
+    }
+
+    @ReactMethod
+    public void checkUpdateStatus(final Promise promise) {
+        Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
+
+        appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
+            if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE) {
+                promise.resolve("Update available");
+            } else {
+                promise.reject("reject", "No update available");
+            }
+        }).addOnFailureListener(failure -> {
+            promise.reject("reject", "checkUpdateStatus failure: " + failure.toString());
+        });
     }
 
     @ReactMethod
