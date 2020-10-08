@@ -51,7 +51,7 @@ try {
 ```
 ## Reference
 ### Methods
-#### startUpdateFlow(appUpdateType, clientVersionStalenessDays)
+#### startUpdateFlow()
 ```javascript
 promise string startUpdateFlow(appUpdateType,clientVersionStalenessDays)
 ```
