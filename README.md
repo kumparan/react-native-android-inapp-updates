@@ -2,6 +2,7 @@
 ![npm](https://img.shields.io/npm/v/@gurukumparan/react-native-android-inapp-updates?style=for-the-badge)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge)](http://makeapullrequest.com)
 
+![](https://media.giphy.com/media/04erHM5iNRnKAPusyR/giphy.gif)
 
 React Native implementation of the Android In-App Update API. 
 For more information on InApp Updates you can check the official [documentation](https://developer.android.com/guide/app-bundle/in-app-updates). 
