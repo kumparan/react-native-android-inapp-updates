@@ -1,0 +1,10 @@
+// @flow
+declare module "@gurukumparan/react-native-android-inapp-update" {
+    declare var updateFlowDict: {
+        IMMEDIATE: 1,
+        FLEXIBLE: 0,
+      };
+    declare function startUpdateFlow(appUpdateType: string, clientVersionStalenessDays?: string): Promise<string>;
+    declare function onCompleteUpdate(): Promise<string>;
+    declare function checkUpdateAvailability(): Promise<string>;
+  }
