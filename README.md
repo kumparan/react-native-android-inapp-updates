@@ -11,6 +11,7 @@ Build with ReasonML.
 
 
 **You will need to test the app via Internal App Sharing** 
+
 Use internal app sharing to test in-app updates by performing the following steps:
 
 1. Make sure your test device has a version of your app installed that supports in-app updates and was installed using an internal app sharing URL.
