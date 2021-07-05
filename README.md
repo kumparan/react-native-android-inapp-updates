@@ -7,7 +7,7 @@
 React Native implementation of the Android In-App Update API. 
 For more information on InApp Updates you can check the official [documentation](https://developer.android.com/guide/app-bundle/in-app-updates). 
 
-Build with ReasonML. This project is still on beta.
+Build with ReasonML. 
 
 ### Project Milestone
 
