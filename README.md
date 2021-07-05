@@ -9,6 +9,15 @@ For more information on InApp Updates you can check the official [documentation]
 
 Build with ReasonML. 
 
+
+**You will need to test the app via Internal App Sharing** 
+Use internal app sharing to test in-app updates by performing the following steps:
+
+1. Make sure your test device has a version of your app installed that supports in-app updates and was installed using an internal app sharing URL.
+2. Follow the Play Console instructions to share your app internally. Upload a version of your app that uses a version code that is higher than the one you already have installed on the test device.
+3. On the test device, click the internal app sharing link for the updated version of your app but do not install the app from the Play Store page that appears after you click the link.
+4. Open the app from the device's app drawer or home screen. The update should now be available to your app, and you can test your implementation of in-app updates.
+
 ### Project Milestone
 
 - [x] `startUpdateFlow`  Basic implementation.
