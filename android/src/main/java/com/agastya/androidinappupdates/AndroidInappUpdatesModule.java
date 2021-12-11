@@ -63,8 +63,7 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
 
         appUpdateInfoTask.addOnSuccessListener(appUpdateInfo -> {
             if (appUpdateInfo.updateAvailability() == UpdateAvailability.UPDATE_AVAILABLE
-                    && appUpdateInfo.clientVersionStalenessDays() != null
-                    && appUpdateInfo.clientVersionStalenessDays() >= clientVersionStalenessDays
+                    && (appUpdateInfo.clientVersionStalenessDays() == null ? clientVersionStalenessDays == 0 : appUpdateInfo.clientVersionStalenessDays() >= clientVersionStalenessDays)
                     && appUpdateInfo.isUpdateTypeAllowed(appUpdateType)) {
                 AppUpdateOptions options = AppUpdateOptions.newBuilder(appUpdateType).build();
                 final Activity activity = getCurrentActivity();
