@@ -41,7 +41,7 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     public void statusDownloadListener(InstallState state) {
         this.reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class).emit("installStatus", state.installStatus());
         if (state.installStatus() == InstallStatus.DOWNLOADING) {
-            long percentageDownloaded = state.bytesDownloaded() * 100 / state.totalBytesToDownload();
+            long percentageDownloaded = state.totalBytesToDownload() > 0 ? state.bytesDownloaded() * 100 / state.totalBytesToDownload() : 0;
             WritableMap downloadInfo = new WritableNativeMap();
             downloadInfo.putString("bytesDownloaded", String.valueOf(state.bytesDownloaded()));
             downloadInfo.putString("totalBytesDownloaded", String.valueOf(state.totalBytesToDownload()));
