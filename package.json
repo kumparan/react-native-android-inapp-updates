@@ -1,7 +1,7 @@
 {
   "name": "@gurukumparan/react-native-android-inapp-updates",
   "title": "React Native Android Inapp Updates",
-  "version": "1.0.25",
+  "version": "2.0.0-beta.1",
   "description": "TODO",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
