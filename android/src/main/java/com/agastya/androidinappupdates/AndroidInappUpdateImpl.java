@@ -2,6 +2,8 @@ package com.agastya.androidinappupdates;
 
 import android.app.Activity;
 
+import androidx.annotation.NonNull;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -19,23 +21,18 @@ import com.google.android.play.core.install.model.InstallStatus;
 import com.google.android.play.core.install.model.UpdateAvailability;
 import com.google.android.play.core.tasks.Task;
 
-
-public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
+public class AndroidInappUpdateImpl {
+    public static final String NAME = "AndroidInappUpdates";
 
     private final ReactApplicationContext reactContext;
     private AppUpdateManager appUpdateManager;
     private boolean isDownloadSuccess = false;
 
-    public AndroidInappUpdatesModule(ReactApplicationContext reactContext) {
-        super(reactContext);
+    public AndroidInappUpdateImpl(ReactApplicationContext reactContext) {
+        super();
         this.reactContext = reactContext;
         this.appUpdateManager = AppUpdateManagerFactory.create(reactContext);
         this.appUpdateManager.registerListener(this::statusDownloadListener);
-    }
-
-    @Override
-    public String getName() {
-        return "AndroidInappUpdates";
     }
 
     public void statusDownloadListener(InstallState state) {
@@ -53,8 +50,7 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
         }
     }
 
-    @Override
-    public void onCatalystInstanceDestroy() {
+    public void unregisterListener() {
         this.appUpdateManager.unregisterListener(this::statusDownloadListener);
     }
 
@@ -66,7 +62,7 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
                     && (appUpdateInfo.clientVersionStalenessDays() == null ? clientVersionStalenessDays == 0 : appUpdateInfo.clientVersionStalenessDays() >= clientVersionStalenessDays)
                     && appUpdateInfo.isUpdateTypeAllowed(appUpdateType)) {
                 AppUpdateOptions options = AppUpdateOptions.newBuilder(appUpdateType).build();
-                final Activity activity = getCurrentActivity();
+                final Activity activity = reactContext.getCurrentActivity();
                 Task<Integer> startUpdateFlow = appUpdateManager.startUpdateFlow(appUpdateInfo, activity, options);
 
                 startUpdateFlow.addOnFailureListener(failure -> {
@@ -86,12 +82,10 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
         });
     }
 
-    @ReactMethod
-    public void checkAppUpdate(int appUpdateType, int clientVersionStalenessDays, final Promise promise) {
-        checkUpdate(promise, appUpdateType, clientVersionStalenessDays);
+    public void checkAppUpdate(double appUpdateType, double clientVersionStalenessDays, final Promise promise) {
+        checkUpdate(promise, (int) appUpdateType, (int) clientVersionStalenessDays);
     }
 
-    @ReactMethod
     public void checkUpdateStatus(final Promise promise) {
         Task<AppUpdateInfo> appUpdateInfoTask = appUpdateManager.getAppUpdateInfo();
 
@@ -106,7 +100,6 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
         });
     }
 
-    @ReactMethod
     public void completeUpdate(final Promise promise) {
         if (this.isDownloadSuccess) {
             this.appUpdateManager.completeUpdate();
@@ -117,3 +110,4 @@ public class AndroidInappUpdatesModule extends ReactContextBaseJavaModule {
     }
 
 }
+
