@@ -23,14 +23,10 @@ const AndroidInappUpdates = AndroidInappUpdateModule
       }
     );
 
-interface UpdateFlowDict {
-  [key: string]: number;
+export enum UpdateFlow {
+  IMMEDIATE = 1,
+  FLEXIBLE = 0,
 }
-
-const updateFlowDict: UpdateFlowDict = {
-  IMMEDIATE: 1,
-  FLEXIBLE: 0,
-};
 
 const checkAppUpdate = (
   updateCode: number,
@@ -51,11 +47,10 @@ const checkUpdateStatus = (): Promise<string> => {
 };
 
 export const startUpdateFlow = (
-  appUpdateType: string,
+  appUpdateType: UpdateFlow,
   clientVersionStalenessDays: number = 0
 ): Promise<string> => {
-  const updateCode = updateFlowDict[appUpdateType.toUpperCase()] || 1;
-  return checkAppUpdate(updateCode, clientVersionStalenessDays);
+  return checkAppUpdate(appUpdateType, clientVersionStalenessDays);
 };
 
 export const onCompleteUpdate = (): Promise<string> => {

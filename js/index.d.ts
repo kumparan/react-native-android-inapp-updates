@@ -1,9 +1,9 @@
-export declare var updateFlowDict: {
-  IMMEDIATE: 1;
-  FLEXIBLE: 0;
-};
+export enum UpdateFlow {
+  IMMEDIATE = 1,
+  FLEXIBLE = 0,
+}
 export function startUpdateFlow(
-  appUpdateType: string,
+  appUpdateType: UpdateFlow,
   clientVersionStalenessDays?: string
 ): Promise<string>;
 export function onCompleteUpdate(): Promise<string>;
