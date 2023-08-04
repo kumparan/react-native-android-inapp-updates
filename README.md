@@ -51,11 +51,10 @@ Read more about autolinking [here](https://github.com/react-native-community/cli
 
 ## Usage
 ```javascript
-import {startUpdateFlow} from '@gurukumparan/react-native-android-inapp-updates';
-const updateModes = 'flexible';
+import {startUpdateFlow, UpdateFlow} from '@gurukumparan/react-native-android-inapp-updates';
 
 try {
-    const result = await startUpdateFlow(updateModes);
+    const result = await startUpdateFlow(UpdateFlow.FLEXIBLE);
 } catch (e) {
     console.log('error:', e);
 }
